@@ -14,7 +14,7 @@ A PowerApps Component Framework React starter kit
 4. edit tsconfig.json
    - add **"noImplicitAny": false** to compilerOptions
 5. install npms
-   - npm i @types/node @types/jest @types/powerapps-component-framework @uifabric/icons office-ui-fabric-react react react-dom
+   - npm i @types/node @types/jest @types/powerapps-component-framework @uifabric/icons @fluentui/react react react-dom
    - npm i -D @babel/core @babel/preset-env @babel/preset-react @storybook/addon-actions @storybook/addon-jest @storybook/addon-storyshots @storybook/react @typescript-eslint/eslint-plugin @typescript-eslint/parser babel-eslint babel-jest babel-loader babel-plugin-add-module-exports babel-plugin-require-context-hook eslint eslint-config-airbnb eslint-config-prettier eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-prettier eslint-plugin-react eslint-plugin-react-hooks jest jsdoc prettier react-test-renderer
 6. copy .eslintrc.json, .gitignore, babel.config.js, jest.config.js and jsdoc.json
 7. copy the .jest & .storybook configuration folders
@@ -56,8 +56,8 @@ It is actually very simple to add web workers into pcf. You can use the example 
 
 **Core Packages**
 
-- [UI Fabric](https://developer.microsoft.com/en-us/fabric#/controls/web)
-- [Redux Toolkit](https://redux-toolkit.js.org/)
+- [Fluent UI](https://github.com/microsoft/fluentui)
+- [Fabric Icons](https://uifabricicons.azurewebsites.net/)
 
 **Design, Documentation, Type Checking & Lint**
 

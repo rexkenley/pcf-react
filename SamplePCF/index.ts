@@ -1,19 +1,30 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
+import { initializeIcons } from "@uifabric/icons";
 import { IInputs, IOutputs } from "./generated/ManifestTypes";
 
 export class DatetimeBox
   implements ComponentFramework.StandardControl<IInputs, IOutputs> {
   private container: HTMLDivElement;
   private notifyOutputChanged: () => void;
-  private value: object | null;
+  private currentValue: object | null;
   private updatedByReact: boolean;
   private isControlDisabled: boolean;
   private isVisible: boolean;
-  /**
-   * Empty constructor.
-   */
-  constructor() {}
+
+  equivalent(parameters) {
+    const { value } = parameters;
+    return value && value.raw === this.currentValue;
+  }
+
+  sync(parameters) {
+    const { value } = parameters;
+    this.currentValue = (value && value.raw) || null;
+  }
+
+  constructor() {
+    initializeIcons();
+  }
 
   /**
    * Used to initialize the control instance. Controls can kick off remote server calls and other initialization actions here.
@@ -35,7 +46,7 @@ export class DatetimeBox
 
     this.container = container;
     this.notifyOutputChanged = notifyOutputChanged;
-    this.value = (value && value.raw) || null;
+    this.currentValue = (value && value.raw) || null;
     this.updatedByReact = false;
     this.isControlDisabled = isControlDisabled;
     this.isVisible = isVisible;
@@ -48,11 +59,11 @@ export class DatetimeBox
         value: this.value,
         disabled: this.isControlDisabled,
         hidden: !this.isVisible,
-        onSampleChange: val => {
-          this.value = val;
+        onSampleChange: (val) => {
+          this.currentValue = val;
           this.updatedByReact = true;
           this.notifyOutputChanged();
-        }
+        },
       }),
       this.container
     );
@@ -65,17 +76,22 @@ export class DatetimeBox
   public updateView(context: ComponentFramework.Context<IInputs>): void {
     // Add code to update control view
     const { parameters, mode } = context,
-      { value } = parameters,
-      { isControlDisabled, isVisible } = mode,
-      equivalent = this.value === value.raw;
+      { isControlDisabled, isVisible } = mode;
 
     if (this.updatedByReact) {
-      if (equivalent) this.updatedByReact = false;
+      if (this.equivalent(parameters)) this.updatedByReact = false;
 
       return;
     }
 
-    this.value = value.raw || null;
+    if (
+      this.equivalent(parameters) &&
+      this.isControlDisabled === isControlDisabled &&
+      this.isVisible === isVisible
+    )
+      return;
+
+    this.sync(parameters);
     this.isControlDisabled = isControlDisabled;
     this.isVisible = isVisible;
 
@@ -86,11 +102,11 @@ export class DatetimeBox
         value: this.value,
         disabled: this.isControlDisabled,
         hidden: !this.isVisible,
-        onSampleChange: val => {
-          this.value = val;
+        onSampleChange: (val) => {
+          this.currentValue = val;
           this.updatedByReact = true;
           this.notifyOutputChanged();
-        }
+        },
       }),
       this.container
     );
