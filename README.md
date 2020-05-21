@@ -16,7 +16,7 @@ A PowerApps Component Framework React starter kit
 5. install npms
    - npm i @types/node @types/jest @types/powerapps-component-framework @uifabric/icons @fluentui/react react react-dom
    - npm i -D @babel/core @babel/preset-env @babel/preset-react @storybook/addon-actions @storybook/addon-jest @storybook/addon-storyshots @storybook/react @typescript-eslint/eslint-plugin @typescript-eslint/parser babel-eslint babel-jest babel-loader babel-plugin-add-module-exports babel-plugin-require-context-hook eslint eslint-config-airbnb eslint-config-prettier eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-prettier eslint-plugin-react eslint-plugin-react-hooks jest jsdoc prettier react-test-renderer
-6. copy .eslintrc.json, .gitignore, babel.config.js, jest.config.js and jsdoc.json
+6. copy .eslintrc.json, .gitignore, .prettierrc.json, babel.config.js, jest.config.js and jsdoc.json
 7. copy the .jest & .storybook configuration folders
 8. copy test/storyShots.test.js to your test folder
 9. copy stories/jest.stories.js to your stories folder
