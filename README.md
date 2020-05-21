@@ -9,7 +9,7 @@ A PowerApps Component Framework React starter kit
 **Project creation steps**
 
 1. md ProjectName & cd ProjectName
-2. pac pcf init --namespace <> --name <> --template <>
+2. pac pcf init --namespace <> --name <> --template <field or dataset>
 3. npm i & npm run build
 4. edit tsconfig.json
    - add **"noImplicitAny": false** to compilerOptions
