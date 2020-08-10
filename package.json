@@ -23,18 +23,18 @@
   "author": "Rex Kenley Tan",
   "license": "MIT",
   "dependencies": {
-    "@fluentui/react": "^7.124.0",
+    "@fluentui/react": "^7.126.3",
     "@types/jest": "^25.2.2",
     "@types/node": "^13.13.15",
     "@types/powerapps-component-framework": "^1.2.0",
-    "@uifabric/icons": "^7.3.65",
-    "office-ui-fabric-react": "^7.124.0",
+    "@uifabric/icons": "^7.3.71",
+    "office-ui-fabric-react": "^7.126.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.10.5",
-    "@babel/preset-env": "^7.10.4",
+    "@babel/core": "^7.11.1",
+    "@babel/preset-env": "^7.11.0",
     "@babel/preset-react": "^7.10.4",
     "@storybook/addon-actions": "^5.3.19",
     "@storybook/addon-jest": "^5.3.19",
